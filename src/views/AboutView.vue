@@ -1,47 +1,31 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
 import ThemeToggle from '../components/ThemeToggle.vue'
-
-type LinkItem = {
-  label: string
-  href: string
-  icon: string
-}
-
-const links: LinkItem[] = [
-  { label: 'Portfolio', href: 'https://example.com', icon: '🌐' },
-  { label: 'Dribbble', href: 'https://dribbble.com', icon: '🏀' },
-  { label: 'LinkedIn', href: 'https://linkedin.com', icon: '💼' },
-  { label: 'Email', href: 'mailto:hello@example.com', icon: '✉️' },
-]
 </script>
 
 <template>
   <ThemeToggle />
   <main class="page">
-    <section class="card">
+    <article class="card">
       <div class="avatar" aria-hidden="true">RJ</div>
-      <h1 class="name">Rohan Jasani</h1>
+      <h1 class="name">About Rohan</h1>
       <p class="tagline">Designer &amp; developer crafting thoughtful digital experiences.</p>
 
-      <nav class="links" aria-label="Profile links">
-        <a
-          v-for="link in links"
-          :key="link.label"
-          class="link"
-          :href="link.href"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span class="link-icon" aria-hidden="true">{{ link.icon }}</span>
-          <span class="link-label">{{ link.label }}</span>
-        </a>
-        <RouterLink to="/about" class="link">
-          <span class="link-icon" aria-hidden="true">👋</span>
-          <span class="link-label">About me</span>
-        </RouterLink>
-      </nav>
-    </section>
+      <section class="bio">
+        <p>
+          I'm a product-minded designer and developer based in the Pacific Northwest. I work at the
+          intersection of design and engineering — prototyping ideas, shipping interfaces, and
+          obsessing over the small details that make software feel alive.
+        </p>
+        <p>
+          Lately I've been exploring AI-assisted tooling, design systems, and the craft of building
+          fast, accessible web experiences. When I'm not at a keyboard, you'll find me on a trail or
+          hunting for the next great cup of coffee.
+        </p>
+      </section>
+
+      <RouterLink to="/" class="back-link">← Back to links</RouterLink>
+    </article>
   </main>
 </template>
 
@@ -94,61 +78,39 @@ const links: LinkItem[] = [
   font-size: 0.95rem;
 }
 
-.links {
-  margin-top: 2rem;
+.bio {
+  margin-top: 1.75rem;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 1rem;
+  text-align: left;
+  color: var(--text);
+  font-size: 0.975rem;
+  line-height: 1.65;
 }
 
-.link {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.9rem 1.1rem;
-  border-radius: 14px;
+.back-link {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 0.6rem 1rem;
+  border-radius: 999px;
   border: 1px solid var(--border);
   background: var(--button-bg);
   color: var(--text);
   font-weight: 500;
-  font-size: 0.975rem;
-  overflow: hidden;
+  font-size: 0.9rem;
   transition:
     transform 0.2s ease,
     background-color 0.25s ease,
     color 0.25s ease,
-    border-color 0.25s ease,
-    box-shadow 0.25s ease;
+    border-color 0.25s ease;
 }
 
-.link::after {
-  content: '↗';
-  margin-left: auto;
-  opacity: 0;
-  transform: translateX(-4px);
-  transition: opacity 0.25s ease, transform 0.25s ease;
-}
-
-.link:hover {
+.back-link:hover {
   transform: translateY(-2px);
   background: var(--button-hover-bg);
   color: var(--button-hover-text);
   border-color: var(--button-hover-bg);
-  box-shadow: var(--shadow);
-}
-
-.link:hover::after {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.link:active {
-  transform: translateY(0);
-}
-
-.link-icon {
-  font-size: 1.1rem;
 }
 
 @media (min-width: 480px) {
