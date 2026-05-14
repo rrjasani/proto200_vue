@@ -1,0 +1,57 @@
+:root {
+  --bg: #ffffff;
+  --surface: #f7f7f8;
+  --text: #15161a;
+  --text-muted: #5b6070;
+  --border: rgba(0, 0, 0, 0.08);
+  --shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
+  --button-bg: #ffffff;
+  --button-hover-bg: #15161a;
+  --button-hover-text: #ffffff;
+}
+
+:root.dark {
+  --bg: #0e0f12;
+  --surface: #16181d;
+  --text: #f4f4f5;
+  --text-muted: #a1a1aa;
+  --border: rgba(255, 255, 255, 0.08);
+  --shadow: 0 6px 24px rgba(0, 0, 0, 0.5);
+  --button-bg: #1c1e24;
+  --button-hover-bg: #f4f4f5;
+  --button-hover-text: #0e0f12;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#app {
+  min-height: 100vh;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  line-height: 1.5;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
