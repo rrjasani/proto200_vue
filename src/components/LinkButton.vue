@@ -22,6 +22,13 @@ defineProps<{
 </template>
 
 <style scoped>
+.link-button {
+  height: auto;
+  min-height: 64px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
 .link-button :deep(.v-btn__prepend) {
   margin-inline-end: 16px;
   margin-inline-start: 8px;
